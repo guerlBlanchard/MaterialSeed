@@ -1,13 +1,22 @@
 import { createBrowserRouter } from "react-router-dom";
 import { CustomRouteObject } from "../types/routes";
-import Homepage from "../views/Homepage/Homepage";
+import { loggedRoutes } from "./LoggedRoutes";
 
 export const routes: CustomRouteObject[] = [
-    {
-        title: 'homepage',
-        path: '/',
-        element: <Homepage />
-    }
+  {
+    title: '',
+    path: '/login',
+    element: (
+      <></>
+    )
+  },
+  {
+    title: 'all',
+    path: '/*',
+    element: (<></>),
+    children: loggedRoutes,
+  },
+
 ];
 
 const router = createBrowserRouter(routes);
